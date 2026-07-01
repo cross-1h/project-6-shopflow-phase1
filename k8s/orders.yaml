@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: orders-service
-          image: REPLACE_ORDERS_IMAGE
+          image: 922685583704.dkr.ecr.us-east-1.amazonaws.com/shopflow-orders:1.0
           ports:
             - containerPort: 8080
           env:

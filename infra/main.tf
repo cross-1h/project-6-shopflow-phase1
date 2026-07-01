@@ -44,6 +44,11 @@ module "eks" {
   vpc_id     = module.vpc.vpc_id
   subnet_ids = module.vpc.private_subnets
 
+# ATHIS BLOCK ENABLES THE ALB CONTROLLER CAN MODIFY NODE SECURITY GROUPS:
+  node_security_group_tags = {
+    "kubernetes.io/cluster/${local.name}" = "owned"
+  }
+
   eks_managed_node_groups = {
     default = {
       instance_types = ["c7i-flex.large"]
